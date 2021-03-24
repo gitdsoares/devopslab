@@ -1,3 +1,6 @@
+stategy: api
+dist: xenial
+os: linux
 # Linguagem Utilizada para Desenvolver a Aplicação                                                                                                                                                       
 language: python                                                                                                                                                                                         
                                                                                                                                                                                                          
