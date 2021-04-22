@@ -30,7 +30,7 @@ jobs:
           token: ${SONAR_TOKEN}
 
     - stage: Deploy
-
+      script: skip
       # Definir o Deploy no Heroku
       deploy:
         provider: heroku
