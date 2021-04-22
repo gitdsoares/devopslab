@@ -10,7 +10,7 @@ python:
 
 addons:
   sonarcloud:
-    organization: gabydias-github
+    organization: David
     token: ${SONAR_TOKEN}    
                                                                                                                                                                                                          
 # Instalação de Módulos que são necessários para a Aplicação.                                                                                                                                            
@@ -29,9 +29,14 @@ deploy:
   edge: true 
   app: devopslab-david
   on:
-      branch: main
+    branch: main
 
 script:                                                                                                                                                                                                                                                                                             
   - python -m unittest -v test                                                                                                                    
   - echo "passei por aqui"     
 
+#Slack
+notifications:
+  slack: g9qdLoNta6M4ZOV0ahAWWrwD
+  on_success: always
+  on_failure: always
