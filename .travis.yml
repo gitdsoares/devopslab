@@ -26,7 +26,7 @@ jobs:
       name: "Testes de Qualidade e Seguranca"
       addons:
         sonarcloud:
-          organization: David
+          organization: gitdsoares
           token: ${SONAR_TOKEN}
 
     - stage: Deploy
