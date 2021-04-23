@@ -44,3 +44,5 @@ jobs:
       #Slack
       notifications:
         slack: devopstools-hq:g9qdLoNta6M4ZOV0ahAWWrwD
+          on_success: always
+          on_failure: always
