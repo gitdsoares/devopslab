@@ -50,11 +50,7 @@ jobs:
         slack:
           rooms:
             - devopstools-hq:IyfTK07VbRdWuWSOZnbZTqDg#general
-<<<<<<< HEAD
             - devopstools-hq:IyfTK07VbRdWuWSOZnbZTqDg#random
-=======
-	    
->>>>>>> 7bb5f03423e8661b73da1541e956fb6a4bde4e54
 
     - stage: PROD Deploy
       script: skip
