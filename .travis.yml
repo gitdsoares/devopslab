@@ -10,7 +10,7 @@ dist: xenial
 
 jobs:
   include:
-    - stage: Testes
+    - stage: Build
 
       name: "Testes Unitarios"
       # Instalação de Módulos que são necessários para a Aplicação.
@@ -29,7 +29,30 @@ jobs:
           organization: gitdsoares
           token: ${SONAR_TOKEN}
 
-    - stage: Deploy
+    - stage: STG Deploy
+      script: skip
+      # Definir o Deploy no Heroku
+      deploy:
+        provider: heroku
+        strategy: api
+        api_key: $HEROKU_API_KEY
+        edge: true
+        app: devopslab-david-stg
+        on:
+          branch: main
+
+    - stage: STG Test
+      script:
+        - curl https://devopslab-david-stg.herokuapp.com/ | grep Pipeline || travis_terminate 1; 
+
+      #Slack
+      notifications:
+        slack:
+          rooms:
+	      - devopstools-hq:IyfTK07VbRdWuWSOZnbZTqDg#general
+	      - devopstools-hq:IyfTK07VbRdWuWSOZnbZTqDg#random
+
+    - stage: PROD Deploy
       script: skip
       # Definir o Deploy no Heroku
       deploy:
@@ -40,6 +63,10 @@ jobs:
         app: devopslab-david
         on:
           branch: main
+
+    - stage: PROD Test
+      script:
+        - curl https://devopslab-david.herokuapp.com/ | grep Pipeline || travis_terminate 1; 
 
       #Slack
       notifications:
